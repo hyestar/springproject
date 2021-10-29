@@ -43,6 +43,9 @@ public class UsrMemberController {
 		if (id == -1) {
 			return "사용중인 로그인 아이디입니다.";
 		}
+		if (id == -2) {
+			return "이미 가입 된 회원의 이름과 이메일 입니다.";
+		}
 		Member member = memberService.getMemberById(id);
 		return member;
 	}
