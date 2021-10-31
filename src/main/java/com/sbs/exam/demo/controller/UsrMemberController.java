@@ -42,10 +42,10 @@ public class UsrMemberController {
 		
 		int id = memberService.join(loginId, loginPw, name, nickname, cellphoneNo, email);
 		if (id == -1) {
-			return "사용중인 로그인 아이디입니다.";
+			return Ut.f("(%s)(은)는 사용중인 로그인 아이디입니다.", loginId);
 		}
 		if (id == -2) {
-			return "이미 가입 된 회원의 이름과 이메일 입니다.";
+			return Ut.f("(%s)와 (%s)(은)는 이미 가입 된 회원의 이름과 이메일 입니다.", name, email);
 		}
 		Member member = memberService.getMemberById(id);
 		return member;
