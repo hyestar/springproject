@@ -1,6 +1,7 @@
 package com.sbs.exam.demo.resultdata;
 
 import com.sbs.exam.demo.vo.Article;
+import com.sbs.exam.demo.vo.Member;
 
 import lombok.Getter;
 
@@ -34,6 +35,10 @@ public class ResultData {
 	
 	public boolean isFail() {
 		return isSuccess() == false;
+	}
+
+	public static ResultData newData(ResultData joinRd, Object newData) {
+		return from(joinRd.getResultCode(), joinRd.getMsg(), newData);
 	}
 	
 	

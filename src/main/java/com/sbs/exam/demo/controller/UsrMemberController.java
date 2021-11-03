@@ -4,6 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.sbs.exam.demo.resultdata.ResultData;
 import com.sbs.exam.demo.service.MemberService;
 import com.sbs.exam.demo.util.Ut;
 import com.sbs.exam.demo.vo.Member;
@@ -20,35 +21,33 @@ public class UsrMemberController {
 	// 액션 메서드 시작
 	@RequestMapping("/usr/member/doJoin")
 	@ResponseBody
-	public Object doJoin(String loginId, String loginPw, String name, String nickname, String cellphoneNo, String email) {
+	public ResultData doJoin(String loginId, String loginPw, String name, String nickname, String cellphoneNo, String email) {
 		if (Ut.empty(loginId)) {
-			return "loginId(을)를 입력해주세요.";
+			return ResultData.from("F-1","loginId(을)를 입력해주세요.");
 		}
 		if (Ut.empty(loginPw)) {
-			return "loginPw(을)를 입력해주세요.";
+			return ResultData.from("F-2","loginPw(을)를 입력해주세요.");
 		}
 		if (Ut.empty(name)) {
-			return "name(을)를 입력해주세요.";
+			return ResultData.from("F-3","name(을)를 입력해주세요.");
 		}
 		if (Ut.empty(nickname)) {
-			return "nickname(을)를 입력해주세요.";
+			return ResultData.from("F-4","nickname(을)를 입력해주세요.");
 		}
 		if (Ut.empty(cellphoneNo)) {
-			return "cellphoneNo(을)를 입력해주세요.";
+			return ResultData.from("F-5","cellphoneNo(을)를 입력해주세요.");
 		}
 		if (Ut.empty(email)) {
-			return "email(을)를 입력해주세요.";
+			return ResultData.from("F-6","email(을)를 입력해주세요.");
 		}
 		
-		int id = memberService.join(loginId, loginPw, name, nickname, cellphoneNo, email);
-		if (id == -1) {
-			return Ut.f("(%s)(은)는 사용중인 로그인 아이디입니다.", loginId);
+		ResultData joinRd = memberService.join(loginId, loginPw, name, nickname, cellphoneNo, email);
+		if (joinRd.isFail()) {
+			return joinRd;
 		}
-		if (id == -2) {
-			return Ut.f("(%s)와 (%s)(은)는 이미 가입 된 회원의 이름과 이메일 입니다.", name, email);
-		}
-		Member member = memberService.getMemberById(id);
-		return member;
+		
+		Member member = memberService.getMemberById((int) joinRd.getData1());
+		return ResultData.newData(joinRd, member);
 	}
 
 }
