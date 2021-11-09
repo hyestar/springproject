@@ -7,6 +7,10 @@
 <head>
 <meta charset="UTF-8">
 <title>메인</title>
+
+<link rel="stylesheet" href="/resource/common.css">
+<script src="/resource/common.js"></script>
+
 </head>
 <body>
   <h1>메인페이지</h1>

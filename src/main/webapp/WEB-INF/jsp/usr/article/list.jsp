@@ -6,6 +6,8 @@
 <head>
 <meta charset="UTF-8">
 <title>게시물 리스트</title>
+<link rel="stylesheet" href="/resource/common.css">
+<script src="/resource/common.js"></script>
 </head>
 <body>
 	<h1>게시물 리스트</h1>
