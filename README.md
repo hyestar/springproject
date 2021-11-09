@@ -16,3 +16,10 @@ msg - 성공여부, 메세지, 추가데이터
 
 상업용 무료한글폰트 사이트
 - 눈누
+- fontawesome
+
+jquery 사이트
+- cdnjs
+
+css 사이트
+- tailwind
