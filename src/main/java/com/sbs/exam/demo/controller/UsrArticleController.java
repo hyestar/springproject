@@ -59,7 +59,14 @@ public class UsrArticleController {
 		model.addAttribute("articles",articles);
 		return "usr/article/list";
 	}
-
+	
+	@RequestMapping("/usr/article/detail")
+	public String showDetail(Model model, int id) {
+		Article article = articleService.getArticle(id);
+		model.addAttribute("article", article);
+		return "usr/article/detail";
+	}
+	// art+shift+R 관련정보 다 수정해줌
 	@RequestMapping("/usr/article/getArticle")
 	@ResponseBody
 	public ResultData<Article> getArticle(int id) {
