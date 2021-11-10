@@ -10,7 +10,8 @@
 <title>${pageTitle}</title>
 
 <!-- 제이쿼리 -->
-<scrpit src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></scrpit>
+<scrpit
+		src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></scrpit>
 
 <!-- 테일윈드 JIT -->
 <script src="https://unpkg.com/tailwindcss-jit-cdn"></script>
@@ -22,12 +23,32 @@
 <script src="/resource/common.js"></script>
 </head>
 <body>
-	<h1 style="line-height:2rem;">${pageTitle}</h1>
-	<header>
-  	<a href="/">사이트A</a>
-  		<ul>
-  			<li><a href="/">홈</a></li>
-  			<li><a href="/usr/article/list">리스트</a></li>
-  		</ul>
-  	</header>
-  	<hr />
+		<!--	<h1 style="line-height:2rem;">${pageTitle}</h1> -->
+		<header>
+				<div class="container mx-auto flex h-20">
+						<a href="/" class="flex items-center px-3"> <span>로고</span>
+						</a>
+
+						<div class="flex-grow"></div>
+
+						<ul class="flex">
+								<li><a
+										class="h-full flex items-center px-3 hover:underline" href="/">
+												<span>홈</span>
+								</a></li>
+								<li><a
+										class="h-full flex items-center px-3 hover:underline"
+										href="/usr/article/list"> <span>리스트</span>
+								</a></li>
+								<li><a
+										class="h-full flex items-center px-3 hover:underline"
+										href="/usr/member/login"> <span>로그인</span>
+								</a></li>
+						</ul>
+				</div>
+		</header>
+		<section class="mt-5">
+				<div class="container mx-auto px-3">${pageTitle}</div>
+		</section>
+
+		<main>

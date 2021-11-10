@@ -4,6 +4,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <c:set var="pageTitle" value="홈"/>
 <%@ include file="../common/head.jspf" %>
-
+<section class = "mt-5">
  <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi doloremque vitae quae quam accusantium veritatis repellendus possimus assumenda placeat vel. Reprehenderit pariatur ipsam beatae ea aut repudiandae harum asperiores minus!</div>
+</section>
  <%@ include file="../common/foot.jspf" %>

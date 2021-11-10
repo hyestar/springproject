@@ -5,8 +5,10 @@
 <!-- 꼭 include 하기 전에 c변수 먼저 생성해줘야함 -->
 <c:set var="pageTitle" value="게시물 리스트"/>
 <%@ include file="../common/head.jspf" %>
-
-	<table border=1>
+<section class="mt-5">
+  <div class="container mx-auto px-3">
+    <div class="table-box-type-1">
+	  <table border=1>
 		<tread>
 		  <tr>
 			<th>번호</th>
@@ -30,4 +32,7 @@
       </c:forEach>
     </tbody>
 	</table>
+   </div>
+  </div>
+</section>
 	<%@ include file="../common/foot.jspf" %>
