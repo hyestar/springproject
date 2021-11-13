@@ -20,3 +20,10 @@ html > body{
   border:1px solid black;
   padding:10px;
 }
+.btn-text-link {
+  color:skyblue;
+}
+
+.btn-text-link:hover {
+  text-decoration: underline;
+} 

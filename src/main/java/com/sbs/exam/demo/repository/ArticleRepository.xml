@@ -12,15 +12,6 @@
 		`body` = #{body}
 	</insert>
 
-	<select id="getArticle" resultType="Article">
-		SELECT A.*,
-		M.nickname AS extra__writerName
-		FROM article AS A
-		LEFT JOIN `member` AS M
-		ON A.memberId = M.id
-		WHERE A.id = #{id}
-	</select>
-
 	<delete id="deleteArticle">
 		DELETE FROM article
 		WHERE id = #{id}
@@ -40,7 +31,7 @@
 		WHERE id = #{id}
 	</update>
 
-	<select id="getArticles" resultType="Article">
+	<select id="getForPrintArticles" resultType="Article">
 		SELECT A.*,
 		M.nickname AS extra__writerName
 		FROM article AS A
