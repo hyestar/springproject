@@ -11,12 +11,12 @@ import com.sbs.exam.demo.vo.Rq;
 @Component
 public class BeforeActionInterceptor implements HandlerInterceptor {
 	@Override
-	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
+	public boolean preHandle(HttpServletRequest req, HttpServletResponse resp, Object handler)
 			throws Exception {
 
-		Rq rq = new Rq(request, response);
-		request.setAttribute("rq", rq);
+		Rq rq = new Rq(req, resp);
+		req.setAttribute("rq", rq);
 
-		return HandlerInterceptor.super.preHandle(request, response, handler);
+		return HandlerInterceptor.super.preHandle(req, resp, handler);
 	}
 }
