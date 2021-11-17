@@ -20,7 +20,7 @@ public class Rq {
 	private HttpSession httpSession;	
 	public Rq(HttpServletRequest req, HttpServletResponse res) {
 
-		this.httpSession = req.getSession();
+
 		this.req = req;
 		this.res = res;
 
@@ -38,7 +38,7 @@ public class Rq {
 	public void printHistoryBackJs() {
 		res.setContentType("text/html; charset=utf-8");
 		print("<script>");
-		print("		alert('로그인이 필요합니다.');");
+		print("		alert('로그인 후 이용해주세요');");
 		print("		history.back();");
 		print("</script>");
 
