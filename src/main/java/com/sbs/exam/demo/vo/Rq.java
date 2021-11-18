@@ -62,6 +62,6 @@ public class Rq {
 		req.setAttribute("msg", msg);
 		req.setAttribute("historyBack", true);
 
-		return "common/js";
+		return "usr/common/js";
 	}
 }
