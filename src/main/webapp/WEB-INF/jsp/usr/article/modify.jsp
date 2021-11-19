@@ -12,7 +12,7 @@
     <form class="table-box-type-1" method="POST"
       action="../article/doModify">
       <input type="hidden" name="id" value="${article.id }" />
-      <table>
+      <table class="table w-full table-zebra">
         <colgroup>
           <col width="200">
         </colgroup>
@@ -43,14 +43,14 @@
           <tr>
             <th>내용</th>
             <td>
-              <textarea class="w-full" name="body" rows="10">${article.body}</textarea>
+              <textarea class="w-full textarea textarea" name="body" rows="10">${article.body}</textarea>
             </td>
           </tr>
           <tr>
             <th>수정</th>
             <td>
-              <input type="submit" value="수정" />
-              <button type="button" onclick="history.back();">뒤로가기</button>
+              <button type="submit" class ="btn btn-ghost btn-outline">수정</button>
+              <button type="button" class ="btn btn-ghost btn-outline" onclick="history.back();">뒤로가기</button>
             </td>
           </tr>
         </tbody>
@@ -58,15 +58,15 @@
     </form>
 
     <div class="btns mt-2">
-      <button class="btn-text-link" type="button"
+      <button class="btn btn-outline" type="button"
         onclick="history.back();">뒤로가기</button>
       <a href="../article/modify?id=${article.id}"
-        class="btn-text-link ml-2">게시물 수정</a>
+        class="btn btn-outline">게시물 수정</a>
       <c:if test="${ article.extra__actorCanDelete }">
         <a
           onclick="if ( confirm('게시물을 삭제하시겠습니까?') == false ) { return false; }"
           href="../article/doDelete?id=${article.id}"
-          class="btn-text-link ml-2">게시물 삭제</a>
+          class="btn btn-outline">게시물 삭제</a>
       </c:if>
     </div>
   </div>

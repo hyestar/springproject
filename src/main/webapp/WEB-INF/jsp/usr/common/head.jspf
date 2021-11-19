@@ -14,8 +14,16 @@
 		src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></scrpit>
 
 <!-- 테일윈드 JIT -->
-<script src="https://unpkg.com/tailwindcss-jit-cdn"></script>
+<!--<script src="https://unpkg.com/tailwindcss-jit-cdn"></script> -->
 
+<!-- 노말라이즈 라이브러리 까지 해결 -->
+<link rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" />
+
+<!-- 데이지 UI -->
+<link href="https://cdn.jsdelivr.net/npm/daisyui@1.16.2/dist/full.css"
+  rel="stylesheet" type="text/css" />
+  
 <!-- 폰트어썸 -->
 <link rel="stylesheet" href="https://cdnjs.com/libraries/font-awesome" />
 
