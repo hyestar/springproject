@@ -22,6 +22,12 @@ public class UsrArticleController {
 	private ArticleService articleService;
 
 	// 액션 메서드 시작
+	@RequestMapping("/usr/article/write")
+	public String showWrite(HttpServletRequest req, Model model) {
+
+		return "usr/article/write";
+	}
+	
 	@RequestMapping("/usr/article/doAdd")
 	@ResponseBody
 	//ResultData 제너릭 추가 완료

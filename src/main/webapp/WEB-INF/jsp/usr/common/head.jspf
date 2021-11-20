@@ -18,12 +18,12 @@
 
 <!-- 노말라이즈 라이브러리 까지 해결 -->
 <link rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" />
+		href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" />
 
 <!-- 데이지 UI -->
 <link href="https://cdn.jsdelivr.net/npm/daisyui@1.16.2/dist/full.css"
-  rel="stylesheet" type="text/css" />
-  
+		rel="stylesheet" type="text/css" />
+
 <!-- 폰트어썸 -->
 <link rel="stylesheet" href="https://cdnjs.com/libraries/font-awesome" />
 
@@ -47,6 +47,10 @@
 								<li><a
 										class="h-full flex items-center px-3 hover:underline"
 										href="/usr/article/list"> <span>리스트</span>
+								</a></li>
+								<li><a
+										class="h-full flex items-center px-3 hover:underline"
+										href="/usr/article/write"> <span>글쓰기</span>
 								</a></li>
 								<c:if test="${!rq.isLogined() }">
 										<li><a
