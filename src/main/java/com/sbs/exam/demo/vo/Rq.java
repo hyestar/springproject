@@ -70,4 +70,12 @@ public class Rq {
 
 		return "usr/common/js";
 	}
+	
+	public String jsHistoryBack(String msg) {
+		return Ut.jsHistoryBack(msg);
+	}
+
+	public String jsReplace(String msg, String uri) {
+		return Ut.jsReplace(msg, uri);
+	}
 }

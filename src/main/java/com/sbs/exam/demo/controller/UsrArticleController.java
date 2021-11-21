@@ -22,33 +22,29 @@ public class UsrArticleController {
 	private ArticleService articleService;
 
 	// 액션 메서드 시작
+	@RequestMapping("/usr/article/dowrite")
+	@ResponseBody
+	public String doWrite(HttpServletRequest req, String title, String body, String replaceUri) {
+		Rq rq = (Rq)req.getAttribute("rq");
+		if(Ut.empty(title)) {
+			return rq.jsHistoryBack("제목을 입력해주세요.");
+		}
+		if(Ut.empty(body)) {
+			return rq.jsHistoryBack("내용을 입력해주세요.");
+		}
+		ResultData<Integer> writeArticleRd = articleService.writeArticle(rq.getLoginedMemberId(), title, body);
+		int id = (int) writeArticleRd.getData1();
+		
+		if(Ut.empty(replaceUri)) {
+			replaceUri = Ut.f("../article/detail?id=%d", id);
+		}
+		
+		return rq.jsReplace(Ut.f("%d번 글이 생성되었습니다.", id), replaceUri);
+	}
 	@RequestMapping("/usr/article/write")
 	public String showWrite(HttpServletRequest req, Model model) {
 
 		return "usr/article/write";
-	}
-	
-	@RequestMapping("/usr/article/doAdd")
-	@ResponseBody
-	//ResultData 제너릭 추가 완료
-	public ResultData<Article> doAdd(HttpServletRequest req,String title, String body) {
-		
-		Rq rq = (Rq)req.getAttribute("rq");  
-
-		
-		if (Ut.empty(title)) {
-			return ResultData.from("F-1", "title을(를) 입력해주세요");
-		}
-		if (Ut.empty(body)) {
-			return ResultData.from("F-2", "body을(를) 입력해주세요");
-		}
-
-		ResultData<Integer> writeArticleRd = articleService.writeArticle(rq.getLoginedMemberId(), title, body);
-		int id = (int) writeArticleRd.getData1();
-
-		Article article = articleService.getForPrintArticle(rq.getLoginedMemberId(), id);
-
-		return ResultData.newData(writeArticleRd, "article", article);
 	}
 
 	@RequestMapping("/usr/article/list")
@@ -88,14 +84,14 @@ public class UsrArticleController {
 		Article article = articleService.getForPrintArticle(rq.getLoginedMemberId(), id);
 
 		if (article == null) {
-			return Ut.jsHistoryBack(Ut.f("%d번 게시물은 존재하지 않습니다.", id));
+			return rq.jsHistoryBack(Ut.f("%d번 게시물은 존재하지 않습니다.", id));
 		}
 		if (article.getMemberId() != rq.getLoginedMemberId()) {
-			return Ut.jsHistoryBack("해당 게시물에 대한 권한이 없습니다");
+			return rq.jsHistoryBack("해당 게시물에 대한 권한이 없습니다");
 		}
 		articleService.deleteArticle(id);
 
-		return Ut.jsReplace(Ut.f("%d번 게시물을 삭제했습니다.", id), "/usr/article/list");
+		return rq.jsReplace(Ut.f("%d번 게시물을 삭제했습니다.", id), "/usr/article/list");
 	}
 	
 	@RequestMapping("/usr/article/modify")
@@ -126,17 +122,17 @@ public class UsrArticleController {
 		Article article = articleService.getForPrintArticle(rq.getLoginedMemberId(), id);
 		
 		if (article == null) {
-			return Ut.jsHistoryBack(Ut.f("%d번 게시물은 존재하지 않습니다.", id));
+			return rq.jsHistoryBack(Ut.f("%d번 게시물은 존재하지 않습니다.", id));
 		}
 		
 		ResultData actorCanModifyRd = articleService.actorCanModify(rq.getLoginedMemberId(), article);
 
 		if (actorCanModifyRd.isFail()) {
-			return Ut.jsHistoryBack(actorCanModifyRd.getMsg());
+			return rq.jsHistoryBack(actorCanModifyRd.getMsg());
 		}
 		
 		articleService.modifyArticle(rq.getLoginedMemberId(), id, title, body);
-		return Ut.jsReplace(Ut.f("%d번 글이 수정되었습니다.", id), Ut.f("../article/detail?id=%d", id));
+		return rq.jsReplace(Ut.f("%d번 글이 수정되었습니다.", id), Ut.f("../article/detail?id=%d", id));
 	}
 
 	// 액션메서드 끝
