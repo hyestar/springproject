@@ -3,7 +3,7 @@
 <!-- c라는 변수를 만들어서 jsp에서만 사용하기 위해 -->
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!-- 꼭 include 하기 전에 c변수 먼저 생성해줘야함 -->
-<c:set var="pageTitle" value="게시물 리스트"/>
+<c:set var="pageTitle" value="${board.name } 게시판"/>
 <%@ include file="../common/head.jspf" %>
 <section class="mt-5">
   <div class="container mx-auto px-3">
