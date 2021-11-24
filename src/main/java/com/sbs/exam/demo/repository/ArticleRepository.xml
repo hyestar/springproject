@@ -43,6 +43,15 @@
 		</if>
 		ORDER BY A.id DESC
 	</select>
+	
+	<select id="getArticlesCount" resultType="int">
+		SELECT COUNT(*) AS cnt
+		FROM article AS A
+		WHERE 1
+		<if test="boardId != 0">
+			AND A.boardId = #{boardId}
+		</if>
+	</select>
 
 	<select id="getLastInsertId" resultType="int">
 		SELECT LAST_INSERT_ID()

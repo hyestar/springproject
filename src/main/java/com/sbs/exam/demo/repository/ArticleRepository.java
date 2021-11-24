@@ -31,4 +31,6 @@ public interface ArticleRepository {
 	public List<Article> getForPrintArticles(@Param("boardId") int boardId);
 
 	public int getLastInsertId();
+	
+	public int getArticlesCount(@Param("boardId")int boardId);
 }
