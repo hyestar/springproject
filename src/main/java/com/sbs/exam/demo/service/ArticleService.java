@@ -24,13 +24,13 @@ public class ArticleService {
 		return ResultData.from("S-1", Ut.f("%d번 게시물이 생성되었습니다.", id),"id", id);
 	}
 
-	public List<Article> getForPrintArticles(int actorId) {
-		List<Article> articles = articleRepository.getForPrintArticles();
+	public List<Article> getForPrintArticles(int actorId, int boardId) {
+		List<Article> articles = articleRepository.getForPrintArticles(boardId);
 
 		for(Article article : articles) {
 			updatePrintForData(actorId, article);
 		}
-		return articleRepository.getForPrintArticles();
+		return articles;
 	}
 
 	public Article getForPrintArticle(int actorId, int id) {
