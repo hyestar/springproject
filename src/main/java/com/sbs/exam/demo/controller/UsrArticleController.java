@@ -33,14 +33,14 @@ public class UsrArticleController {
 	// 액션 메서드 시작
 	@RequestMapping("/usr/article/dowrite")
 	@ResponseBody
-	public String doWrite(String title, String body, String replaceUri) {
+	public String doWrite(int boardId, String title, String body, String replaceUri) {
 		if(Ut.empty(title)) {
 			return rq.jsHistoryBack("제목을 입력해주세요.");
 		}
 		if(Ut.empty(body)) {
 			return rq.jsHistoryBack("내용을 입력해주세요.");
 		}
-		ResultData<Integer> writeArticleRd = articleService.writeArticle(rq.getLoginedMemberId(), title, body);
+		ResultData<Integer> writeArticleRd = articleService.writeArticle(rq.getLoginedMemberId(), boardId, title, body);
 		int id = (int) writeArticleRd.getData1();
 		
 		if(Ut.empty(replaceUri)) {
