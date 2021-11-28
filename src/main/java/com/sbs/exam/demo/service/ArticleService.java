@@ -93,8 +93,8 @@ public class ArticleService {
 
 		return ResultData.from("S-1", "해당 게시물 수정이 가능합니다");
 	}
-	public int getArticlesCount(int boardId) {
+	public int getArticlesCount(int boardId, String searchKeywordTypeCode, String searchKeyword) {
 
-		return articleRepository.getArticlesCount(boardId);
+		return articleRepository.getArticlesCount(boardId, searchKeywordTypeCode, searchKeyword);
 	}
 }
