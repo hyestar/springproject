@@ -1,10 +1,9 @@
 package com.sbs.exam.demo.resultdata;
 
-import com.sbs.exam.demo.vo.Article;
-import com.sbs.exam.demo.vo.Member;
-
 import lombok.Getter;
+import lombok.ToString;
 
+@ToString
 public class ResultData<DT> {
 	@Getter
 	private String resultCode;

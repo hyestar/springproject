@@ -94,8 +94,8 @@ INSERT INTO article
 SET regDate = NOW(),
 updateDate = NOW(),
 memberId = 3,
-title = '제목3',
-`body` = '내용3';
+title = '제목4',
+`body` = '내용4';
 
 # 게시판 테이블 생성
 CREATE TABLE board (
@@ -152,3 +152,9 @@ SELECT NOW(), NOW(), FLOOR(RAND() * 3 + 1), FLOOR(RAND() * 2 + 1), CONCAT('제�
 FROM article;
 
 SELECT FLOOR(RAND() * 2 + 1);
+
+SELECT CONCAT('%','하하','%')
+
+#게시물 테이블에 hitCount 칼럼 추가
+ALTER TABLE article
+ADD COLUMN hitCount INT(10) UNSIGNED NOT NULL DEFAULT 0;
