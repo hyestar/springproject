@@ -9,23 +9,24 @@
 <meta charset="UTF-8">
 <title>${pageTitle}</title>
 
-<!-- 제이쿼리 -->
-<scrpit
-		src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></scrpit>
+<!-- 제이쿼리 불러오기 -->
+<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
-<!-- 테일윈드 JIT -->
+<!-- 테일윈드 JIT 불러오기-->
 <!--<script src="https://unpkg.com/tailwindcss-jit-cdn"></script> -->
 
 <!-- 노말라이즈 라이브러리 까지 해결 -->
 <link rel="stylesheet"
-		href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" />
+		href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.7/tailwind.min.css" />
 
 <!-- 데이지 UI -->
-<link href="https://cdn.jsdelivr.net/npm/daisyui@1.16.2/dist/full.css"
+<link href="https://cdn.jsdelivr.net/npm/daisyui@1.11.1/dist/full.css"
 		rel="stylesheet" type="text/css" />
 
-<!-- 폰트어썸 -->
-<link rel="stylesheet" href="https://cdnjs.com/libraries/font-awesome" />
+<!-- 폰트어썸 불러오기 -->
+<link rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
 
 <!--사이트 공통 css -->
 <link rel="stylesheet" href="/resource/common.css">

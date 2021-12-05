@@ -97,7 +97,7 @@ public class ArticleService {
 
 		return articleRepository.getArticlesCount(boardId, searchKeywordTypeCode, searchKeyword);
 	}
-	public ResultData increaseHitCount(int id) {
+	public ResultData<Integer> increaseHitCount(int id) {
 		int affectedRowsCount = articleRepository.increaseHitCount(id);
 
 		if (affectedRowsCount == 0) {
