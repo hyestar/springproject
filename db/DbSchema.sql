@@ -134,6 +134,10 @@ UPDATE article
 SET boardId = 2
 WHERE id IN (3,4);
 
+#게시물 테이블에 hitCount 칼럼 추가
+ALTER TABLE article
+ADD COLUMN hitCount INT(10) UNSIGNED NOT NULL DEFAULT 0;
+
 SHOW TABLES;
 DESC article;
 
@@ -154,7 +158,3 @@ FROM article;
 SELECT FLOOR(RAND() * 2 + 1);
 
 SELECT CONCAT('%','하하','%')
-
-#게시물 테이블에 hitCount 칼럼 추가
-ALTER TABLE article
-ADD COLUMN hitCount INT(10) UNSIGNED NOT NULL DEFAULT 0;
