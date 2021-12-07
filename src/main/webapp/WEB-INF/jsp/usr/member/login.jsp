@@ -29,8 +29,8 @@
           <tr>
             <th>로그인</th>
             <td>
-              <input type="submit" value="로그인" />
-              <button type="button" onclick="history.back();">뒤로가기</button>
+              <input type="submit" class = "btn btn-outline" value="로그인" />
+              <button type="button" class = "btn btn-outline" onclick="history.back();">뒤로가기</button>
             </td>
           </tr>
         </tbody>
@@ -38,10 +38,10 @@
     </form>
 
     <div class="btns mt-2">
-      <button class="btn btn-link" type="button"
+      <button class="btn btn-outline" type="button"
         onclick="history.back();">뒤로가기</button>
       <a href="../article/modify?id=${article.id}"
-        class="btn-text-link ml-2">게시물 수정</a>
+        class="btn btn-outline ml-2">게시물 수정</a>
       <c:if test="${ article.extra__actorCanDelete }">
         <a
           onclick="if ( confirm('게시물을 삭제하시겠습니까?') == false ) { return false; }"
