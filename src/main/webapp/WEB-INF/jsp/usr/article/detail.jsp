@@ -60,10 +60,6 @@
             <td>${article.extra__writerName}</td>
           </tr>
           <tr>
-            <th>조회수</th>
-            <td><span class="badge badge-ghost badge-outline article-detail__hit-count">${article.hitCount}</span></td>
-          </tr>
-          <tr>
             <th>제목</th>
             <td>${article.title}</td>
           </tr>
