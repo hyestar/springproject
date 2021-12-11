@@ -31,7 +31,7 @@
     //    ArticleDetail__increaseHitCount();
 	
     //임시
-    setTimeout(ArticleDetail__increaseHitCount, 3000);
+    setTimeout(ArticleDetail__increaseHitCount, 500);
   })
 </script>
 
@@ -59,6 +59,16 @@
             <th>작성자</th>
             <td>${article.extra__writerName}</td>
           </tr>
+          <tr>
+			<th>조회수</th>
+			<td><span class="badge badge-ghost">${article.hitCount }</span>
+			</td>
+	      </tr>
+		  <tr>
+			<th>추천</th>
+			<td><span class="badge badge-ghost">${article.extra__goodReactionPoint }</span>
+			</td>
+		  </tr>
           <tr>
             <th>제목</th>
             <td>${article.title}</td>
