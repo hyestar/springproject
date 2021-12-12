@@ -68,7 +68,7 @@
 			<th>추천</th>
 			<td>
 				<div class="flex items-center">
-					<span class="badge badge-ghost">${article.extra__goodReactionPoint }</span>
+					<span class="badge badge-ghost">${article.goodReactionPoint }</span>
 					<span>&nbsp;</span>
 						<c:if test="${actorCanMakeReactionPoint }">
 							<button class="btn btn-xs">좋아요👍</button>

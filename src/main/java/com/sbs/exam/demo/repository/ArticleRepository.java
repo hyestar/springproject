@@ -18,18 +18,11 @@ public interface ArticleRepository {
 			<script>
 			SELECT A.*,
 			M.nickname AS extra__writerName,
-			IFNULL(SUM(RP.point),0) AS extra__sumReactionPoint,
-			IFNULL(SUM(IF(RP.point &gt; 0, RP.point, 0)),0) AS extra__goodReactionPoint,
-			IFNULL(SUM(IF(RP.point &lt; 0, RP.point, 0)),0) AS extra__badReactionPoint
 			FROM article AS A
 			LEFT JOIN member AS M
 			ON A.memberId = M.id
-			LEFT JOIN reactionPoint AS RP
-			ON RP.relTypeCode = 'article'
-			AND A.id = RP.relId
 			WHERE 1
 			AND A.id = #{id}
-			GROUP BY A.id
 			</script>
 			""")
 	public Article getForPrintArticle(@Param("id") int id);
