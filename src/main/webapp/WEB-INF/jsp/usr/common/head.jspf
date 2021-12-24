@@ -77,6 +77,11 @@
 												href="/usr/member/doLogout"> <span>로그아웃</span>
 										</a></li>
 								</c:if>
+								<c:if test="${rq.isLogined() }">
+         								<li><a class="h-full flex items-center px-3 hover:underline" href="/usr/member/modify">
+              								<span>${rq.loginedMember.nickname }'s Profile</span>
+            							</a></li>
+        						</c:if>
 						</ul>
 				</div>
 		</header>
